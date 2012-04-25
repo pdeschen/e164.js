@@ -1,0 +1,28 @@
+{
+  "author": "Pascal Deschenes <pdeschen@rassemblr.com> (http://blog.rassemblr.com)",
+  "name": "e164",
+  "description": "lookup country name given international phone number e164 format.",
+  "version": "0.0.1",
+  "keywords": ["phone", "country", "e164"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pdeschen/bancroft.git"
+  },
+  "bugs": {
+    "email": "pdeschen+e164.js@gmail.com",
+    "url": "http://github.com/pdeschen/e164.js/issues"
+  },
+  "main": "e164",
+  "engines": {
+    "node": ">=v0.4.0 <=v0.6.x"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "contributors": [
+    "Pascal Deschenes <pdeschen@rassemblr.com> (http://blog.rassemblr.com)"
+    ]
+}
