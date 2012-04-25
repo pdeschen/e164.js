@@ -57,6 +57,7 @@ Almost directly from test/index.html
 ## Todo
 
 * return object of the form {country: "", code: ""}
+* Support for dial out [calling prefix] (http://en.wikipedia.org/wiki/International_call_prefix) could be offered directly or through options hash
 
 ## License
 
