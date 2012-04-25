@@ -2,7 +2,7 @@
   "author": "Pascal Deschenes <pdeschen@rassemblr.com> (http://blog.rassemblr.com)",
   "name": "e164",
   "description": "lookup country name given international phone number e164 format.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["phone", "country", "e164"],
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   },
   "main": "e164",
   "engines": {
-    "node": ">=v0.4.0 <=v0.6.x"
+    "node": "0.4 || 0.5 || 0.6 || 0.7 || 0.8"
   },
   "dependencies": {
   },
