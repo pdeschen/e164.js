@@ -40,7 +40,7 @@ Almost directly from test/index.html
 
 ## ChangeLog
 
-### 0.0.1
+### 0.0.2
 
 * Initial release
 
