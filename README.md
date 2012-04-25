@@ -13,6 +13,8 @@ If a number can`t be found from the lookup hash, number is assumed to be invalid
 
 ### Node
 
+Directly from test/test.js
+
     var e164 = require('e164'), assert = require('assert');
 
     assert.equal("Canada", e164.lookup('15141234567'));
@@ -26,7 +28,12 @@ If a number can`t be found from the lookup hash, number is assumed to be invalid
 
 ### Browser
 
+Almost directly from test/index.html
+
+    <script src="e164.min.js"></script>
+    <!--
     <script src="e164.js"></script>
+    -->
     <script>
       console.log(e164.lookup('15145551234'));
     </script>
