@@ -1,4 +1,4 @@
-# e164.js
+# e164.js [![Build Status](https://travis-ci.org/pdeschen/e164.js.png?branch=master)](https://travis-ci.org/pdeschen/e164.js) 
 
 e164.js is a browser friendly [node](http://nodejs.org) module to lookup country name based on given international phone number complying to
 [E.164](http://en.wikipedia.org/wiki/E.164) format. 

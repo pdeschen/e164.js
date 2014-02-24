@@ -6,7 +6,7 @@ var e164 = require('../e164'), assert = require('assert');
 
 assert.equal("Canada", e164.lookup('15141234567'));
 assert.equal("Toll Free", e164.lookup('18001231234'));
-assert.equal("United State", e164.lookup('18703434345'));
+assert.equal("United States", e164.lookup('18703434345'));
 assert.equal("India", e164.lookup('9191'));
 assert.equal("Norfolk Island", e164.lookup('672322424'));
 assert.equal("ICO Global (Mobile Satellite Service)", e164.lookup('88112311'));
