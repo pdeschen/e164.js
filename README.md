@@ -34,7 +34,7 @@ Directly from test/test.js
 
 Almost directly from test/index.html
 
-    <script src="e164.min.js"></script>
+    <script src="min/e164.js"></script>
     <!--
     <script src="e164.js"></script>
     -->

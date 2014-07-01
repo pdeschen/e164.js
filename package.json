@@ -3,7 +3,11 @@
   "name": "e164",
   "description": "lookup country name given international phone number e164 format.",
   "version": "0.0.5",
-  "keywords": ["phone", "country", "e164"],
+  "keywords": [
+    "phone",
+    "country",
+    "e164"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/pdeschen/e164.js.git"
@@ -16,9 +20,11 @@
   "engines": {
     "node": "0.6 || 0.8 || 0.10"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.8",
+    "gulp-uglify": "^0.3.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "node ./test/test.js"
   },
@@ -26,5 +32,5 @@
     "Pascal Deschenes <pdeschen@rassemblr.com> (http://blog.rassemblr.com)",
     "Dave Lyons <dalyons@gmail.com>",
     "csugden"
-    ]
+  ]
 }
