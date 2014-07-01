@@ -22,7 +22,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "gulp": "~3.4",
+    "gulp": "~3.8",
     "gulp-uglify": "~0.3.1"
   },
   "scripts": {
