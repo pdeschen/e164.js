@@ -289,7 +289,7 @@ var lookup, prefixes = {
   "1805": [ "US", "United States" ],
   "1806": [ "US", "United States" ],
   "1807": [ "CA", "Canada" ],
-  "1808": [ "WK", "Wake Island" ],
+  "1808": [ "UM", "Wake Island" ],
   "1809": [ "DO", "Dominican Republic" ],
   "1810": [ "US", "United States" ],
   "1812": [ "US", "United States" ],
