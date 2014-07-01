@@ -1,13 +1,16 @@
 # e164.js [![Build Status](https://travis-ci.org/pdeschen/e164.js.png?branch=master)](https://travis-ci.org/pdeschen/e164.js) 
 
-e164.js is a browser friendly [node](http://nodejs.org) module to lookup country name based on given international phone number complying to
-[E.164](http://en.wikipedia.org/wiki/E.164) format. 
+e164.js is a browser friendly [node](http://nodejs.org) module to lookup country name 
+based on given international phone number complying to [E.164](http://en.wikipedia.org/wiki/E.164) format. 
 
 ## How it works
 
-e162.js doesn`t check whether the phone number is a valid one or not. It simply returns the associated country based on prefix matching. The matcher starts from the last digit and revert lookup until a number matches from the lookup hash.
+e162.js doesn't check whether the phone number is a valid one or not. It simply returns the associated country based on prefix matching. 
+The matcher starts from the last digit and revert lookup until a number matches from the lookup hash.
 
-If a number can`t be found from the lookup hash, number is assumed to be invalid and returns undefined.
+If a number can't be found from the lookup hash, number is assumed to be invalid and returns undefined.
+
+If you're into formating, parsing or validation of any sort, checkout [Google's own](https://code.google.com/p/libphonenumber/). 
 
 ## Examples
 
@@ -15,16 +18,17 @@ If a number can`t be found from the lookup hash, number is assumed to be invalid
 
 Directly from test/test.js
 
-    var e164 = require('e164'), assert = require('assert');
+    var e164 = require('../e164'), assert = require('assert');
 
-    assert.equal("Canada", e164.lookup('15141234567'));
-    assert.equal("Toll Free", e164.lookup('18001231234'));
-    assert.equal("United State", e164.lookup('18703434345'));
-    assert.equal("India", e164.lookup('9191'));
-    assert.equal("Norfolk Island", e164.lookup('672322424'));
-    assert.equal("ICO Global (Mobile Satellite Service)", e164.lookup('88112311'));
-    assert.equal("Canada", e164.lookup('1418'));
-    assert.equal(undefined, e164.lookup('0'));
+    assert.deepEqual({country: "Canada", code: "CA"}, e164.lookup('15141234567'));
+    assert.deepEqual({country: "Toll Free", code: "US"}, e164.lookup('18001231234'));
+    assert.deepEqual({country: "United States", code: "US"}, e164.lookup('18703434345'));
+    assert.deepEqual({country: "India", code: "IN"}, e164.lookup('9191'));
+    assert.deepEqual({country: "Norfolk Island", code: "NF"}, e164.lookup('672322424'));
+    assert.deepEqual({country: "ICO Global (Mobile Satellite Service)", code: "ZZ"}, e164.lookup('88112311'));
+    assert.deepEqual({country: "Canada", code: "CA"}, e164.lookup('1418'));
+    assert.deepEqual(undefined, e164.lookup('0'));
+
 
 ### Browser
 
@@ -39,6 +43,10 @@ Almost directly from test/index.html
     </script>
 
 ## ChangeLog
+
+### 0.0.5
+
+* Added ISO country codes [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 
 ### 0.0.2
 
@@ -56,8 +64,14 @@ Almost directly from test/index.html
 
 ## Todo
 
-* return object of the form {country: "", code: ""}
 * Support for dial out [calling prefix] (http://en.wikipedia.org/wiki/International_call_prefix) could be offered directly or through options hash
+* `reverse` lookup method returning a list of numbers prefixes for given country.
+* `validate(number, country)` method returning true/false whether given number fits in given country.
+
+## Contributors
+
++ Chris Sugden (https://github.com/csugden)
++ Dave Lyons (https://github.com/dalyons)
 
 ## License
 
