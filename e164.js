@@ -632,11 +632,15 @@ lookup = function(phone) {
     }
   }
 };
+
+
+
 if (typeof exports !== "undefined"){
   exports.lookup = lookup;
+  exports.prefixes = prefixes;
 }
 if (typeof window !== "undefined"){
-  window.e164 = { lookup : lookup};
+  window.e164 = { lookup : lookup, prefixes: prefixes };
 }
 
 })();
