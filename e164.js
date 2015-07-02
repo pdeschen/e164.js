@@ -86,6 +86,7 @@ var lookup, prefixes = {
   "1340": [ "VI", "Virgin Islands, US" ],
   "1343": [ "CA", "Canada" ],
   "1345": [ "KY", "Cayman Islands" ],
+  "1346": [ "US", "United States" ],
   "1347": [ "US", "United States" ],
   "1351": [ "US", "United States" ],
   "1352": [ "US", "United States" ],
