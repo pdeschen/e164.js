@@ -371,6 +371,7 @@ var lookup, prefixes = {
   "1952": [ "US", "United States" ],
   "1954": [ "US", "United States" ],
   "1956": [ "US", "United States" ],
+  "1959": [ "US", "United States" ],
   "1970": [ "US", "United States" ],
   "1971": [ "US", "United States" ],
   "1972": [ "US", "United States" ],
