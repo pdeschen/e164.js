@@ -23,6 +23,7 @@ var lookup, prefixes = {
   "1217": [ "US", "United States" ],
   "1218": [ "US", "United States" ],
   "1219": [ "US", "United States" ],
+  "1220": [ "US", "United States" ],
   "1224": [ "US", "United States" ],
   "1225": [ "US", "United States" ],
   "1226": [ "CA", "Canada" ],
