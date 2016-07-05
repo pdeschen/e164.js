@@ -302,7 +302,7 @@ var lookup, prefixes = {
   "1805": [ "US", "United States" ],
   "1806": [ "US", "United States" ],
   "1807": [ "CA", "Canada" ],
-  "1808": [ "UM", "Wake Island" ],
+  "1808": [ "US", "United States" ],
   "1809": [ "DO", "Dominican Republic" ],
   "1810": [ "US", "United States" ],
   "1812": [ "US", "United States" ],
@@ -651,11 +651,15 @@ lookup = function(phone) {
     }
   }
 };
+
+
+
 if (typeof exports !== "undefined"){
   exports.lookup = lookup;
+  exports.prefixes = prefixes;
 }
 if (typeof window !== "undefined"){
-  window.e164 = { lookup : lookup};
+  window.e164 = { lookup : lookup, prefixes: prefixes };
 }
 
 })();
