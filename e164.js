@@ -640,18 +640,50 @@ var lookup, prefixes = {
   "998": [ "UZ", "Uzbekistan" ]
 };
 
-lookup = function(phone) {
-  if (phone.length) {
-    var prefix, c = phone.length;
-    for (c; c >= 0; c=c-1) {
-      prefix = phone.substring(0, c);
-      if (prefixes[prefix]) {
-        return { country: prefixes[prefix][1], code: prefixes[prefix][0] };
-      }
+numbersOnly = function(phone) {
+  return phone.replace('+', '');
+};
+
+isSupportedPrefix = function(prefix) {
+  return !!prefixes[prefix];
+};
+
+getPrefix = function(phone) {
+  var prefix, c = phone.length;
+  for (c; c >= 0; c=c-1) {
+    prefix = phone.substring(0, c);
+    if (isSupportedPrefix(prefix)) {
+      return prefix;
     }
   }
 };
 
+getCountryName = function(prefix) {
+  return isSupportedPrefix(prefix) && prefixes[prefix][1];
+};
+
+getCountryCode = function(prefix) {
+  return isSupportedPrefix(prefix) && prefixes[prefix][0];
+};
+
+getPrefixInfo = function(prefix) {
+  return {
+    prefix: prefix,
+    country: getCountryName(prefix),
+    code: getCountryCode(prefix),
+  };
+};
+
+lookup = function(phone) {
+  if (!phone) {
+    return;
+  }
+  var parsedPhone = numbersOnly(phone);
+  var prefix = getPrefix(parsedPhone);
+  if (prefix) {
+    return getPrefixInfo(prefix);
+  }
+};
 
 
 if (typeof exports !== "undefined"){
