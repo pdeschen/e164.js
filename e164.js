@@ -302,7 +302,7 @@ var lookup, prefixes = {
   "1805": [ "US", "United States" ],
   "1806": [ "US", "United States" ],
   "1807": [ "CA", "Canada" ],
-  "1808": [ "UM", "Wake Island" ],
+  "1808": [ "US", "United States" ],
   "1809": [ "DO", "Dominican Republic" ],
   "1810": [ "US", "United States" ],
   "1812": [ "US", "United States" ],
@@ -640,22 +640,58 @@ var lookup, prefixes = {
   "998": [ "UZ", "Uzbekistan" ]
 };
 
-lookup = function(phone) {
-  if (phone.length) {
-    var prefix, c = phone.length;
-    for (c; c >= 0; c=c-1) {
-      prefix = phone.substring(0, c);
-      if (prefixes[prefix]) {
-        return { country: prefixes[prefix][1], code: prefixes[prefix][0] };
-      }
+numbersOnly = function(phone) {
+  return phone.split(/[^\d]/).join('');
+};
+
+isSupportedPrefix = function(prefix) {
+  return !!prefixes[prefix];
+};
+
+getPrefix = function(phone) {
+  var prefix, c = phone.length;
+  for (c; c >= 0; c=c-1) {
+    prefix = phone.substring(0, c);
+    if (isSupportedPrefix(prefix)) {
+      return prefix;
     }
   }
 };
+
+getCountryName = function(prefix) {
+  return isSupportedPrefix(prefix) && prefixes[prefix][1];
+};
+
+getCountryCode = function(prefix) {
+  return isSupportedPrefix(prefix) && prefixes[prefix][0];
+};
+
+getPrefixInfo = function(prefix) {
+  return {
+    prefix: prefix,
+    country: getCountryName(prefix),
+    code: getCountryCode(prefix),
+  };
+};
+
+lookup = function(phone) {
+  if (!phone) {
+    return;
+  }
+  var parsedPhone = numbersOnly(phone);
+  var prefix = getPrefix(parsedPhone);
+  if (prefix) {
+    return getPrefixInfo(prefix);
+  }
+};
+
+
 if (typeof exports !== "undefined"){
   exports.lookup = lookup;
+  exports.prefixes = prefixes;
 }
 if (typeof window !== "undefined"){
-  window.e164 = { lookup : lookup};
+  window.e164 = { lookup : lookup, prefixes: prefixes };
 }
 
 })();
