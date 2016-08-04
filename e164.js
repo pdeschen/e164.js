@@ -641,7 +641,7 @@ var lookup, prefixes = {
 };
 
 numbersOnly = function(phone) {
-  return phone.replace('+', '');
+  return phone.split(/[^\d]/).join('');
 };
 
 isSupportedPrefix = function(prefix) {
