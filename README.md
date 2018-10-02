@@ -5,7 +5,7 @@ based on given international phone number complying to [E.164](http://en.wikiped
 
 ## How it works
 
-e162.js doesn't check whether the phone number is a valid one or not. It simply returns the associated country based on prefix matching. 
+e164.js doesn't check whether the phone number is a valid one or not. It simply returns the associated country based on prefix matching. 
 The matcher starts from the last digit and revert lookup until a number matches from the lookup hash.
 
 If a number can't be found from the lookup hash, number is assumed to be invalid and returns undefined.
