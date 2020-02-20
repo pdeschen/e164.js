@@ -4,7 +4,7 @@ const _ = require("lodash");
 
 const fs = require("fs");
 
-// these are the county strings we expect for countries in the NAPN dataset
+// these are the country strings we expect for countries in the NAPN dataset
 const COUNTRY_TO_EXPECTED_FORMAT = {
   US: ["US", "United States"],
   CANADA: ["CA", "Canada"],
