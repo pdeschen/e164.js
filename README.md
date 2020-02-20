@@ -1,16 +1,27 @@
-# e164.js [![Build Status](https://travis-ci.org/pdeschen/e164.js.png?branch=master)](https://travis-ci.org/pdeschen/e164.js) 
+# e164.js [![Build Status](https://travis-ci.org/pdeschen/e164.js.png?branch=master)](https://travis-ci.org/pdeschen/e164.js)
 
-e164.js is a browser friendly [node](http://nodejs.org) module to lookup country name 
-based on given international phone number complying to [E.164](http://en.wikipedia.org/wiki/E.164) format. 
+e164.js is a browser friendly [node](http://nodejs.org) module to lookup country name
+based on given international phone number complying to [E.164](http://en.wikipedia.org/wiki/E.164) format.
 
 ## How it works
 
-e164.js doesn't check whether the phone number is a valid one or not. It simply returns the associated country based on prefix matching. 
+e164.js doesn't check whether the phone number is a valid one or not. It simply returns the associated country based on prefix matching.
 The matcher starts from the last digit and revert lookup until a number matches from the lookup hash.
 
 If a number can't be found from the lookup hash, number is assumed to be invalid and returns undefined.
 
-If you're into formating, parsing or validation of any sort, checkout [Google's own](https://code.google.com/p/libphonenumber/). 
+If you're into formating, parsing or validation of any sort, checkout [Google's own](https://code.google.com/p/libphonenumber/).
+
+## Updating numberset
+
+This module has been forked and modified by the addition of `convert_napm.js`. It works by using the npa_report.csv and generating a new set of data, then overriding the north american numbers already in the dataset. Along with additional rules for Remind (aka, seperating Peurto Rico from "US" country code and others that, unfortunately, involve extra fee's).
+
+You can download the latest CSV at the [North American Number Plan Adminstrator Site](https://nationalnanpa.com/reports/reports_npa.html) - Click on "NPA Database" for the current CSV. Replace `npa_report.csv` in the project directory and run
+`./convert_napn.js`
+
+If everything goes well then pump the version and upload back to github. At Remind we need to update https://github.com/remind101/e164.rb based off this project.
+
+Then update the following projects: r101-postoffice, r101-vacuum, r101-api, and r101-whitepages in order to successfully update our infrastructure together (and they must be done together).
 
 ## Examples
 
@@ -29,7 +40,6 @@ Directly from test/test.js
     assert.deepEqual({country: "Canada", code: "CA"}, e164.lookup('1418'));
     assert.deepEqual(undefined, e164.lookup('0'));
 
-
 ### Browser
 
 Almost directly from test/index.html
@@ -46,32 +56,32 @@ Almost directly from test/index.html
 
 ### 0.0.5
 
-* Added ISO country codes [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+- Added ISO country codes [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 
 ### 0.0.2
 
-* Initial release
+- Initial release
 
 ## Installation
 
 ### Git Clone
 
-> $ git clone git://github.com/pdeschen/e164.js.git
+> \$ git clone git://github.com/pdeschen/e164.js.git
 
 ### Install from npm
 
-> $ sudo npm install e164 [-g]
+> \$ sudo npm install e164 [-g]
 
 ## Todo
 
-* Support for dial out [calling prefix] (http://en.wikipedia.org/wiki/International_call_prefix) could be offered directly or through options hash
-* `reverse` lookup method returning a list of numbers prefixes for given country.
-* `validate(number, country)` method returning true/false whether given number fits in given country.
+- Support for dial out [calling prefix](http://en.wikipedia.org/wiki/International_call_prefix) could be offered directly or through options hash
+- `reverse` lookup method returning a list of numbers prefixes for given country.
+- `validate(number, country)` method returning true/false whether given number fits in given country.
 
 ## Contributors
 
-+ Chris Sugden (https://github.com/csugden)
-+ Dave Lyons (https://github.com/dalyons)
+- Chris Sugden (https://github.com/csugden)
+- Dave Lyons (https://github.com/dalyons)
 
 ## License
 
