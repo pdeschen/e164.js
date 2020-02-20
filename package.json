@@ -2,7 +2,7 @@
   "author": "Pascal Deschenes <pdeschen@rassemblr.com> (http://blog.rassemblr.com)",
   "name": "e164",
   "description": "lookup country name given international phone number e164 format.",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "keywords": [
     "phone",
     "country",
@@ -23,7 +23,10 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "~3.8",
-    "gulp-uglify": "~0.3.1"
+    "gulp-uglify": "~0.3.1",
+    "csvlint": "^0.2.2",
+    "lodash": "^4.17.15",
+    "neat-csv": "^5.2.0"
   },
   "scripts": {
     "test": "node ./test/test.js"
@@ -31,6 +34,7 @@
   "contributors": [
     "Pascal Deschenes <pdeschen@rassemblr.com> (http://blog.rassemblr.com)",
     "Dave Lyons <dalyons@gmail.com>",
+    "Tor Helmer <tor@remind101.com",
     "csugden"
   ]
 }
