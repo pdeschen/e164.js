@@ -4,6 +4,7 @@
 
 (function() {
 
+	// Do not add fields directly to this data structure, they get populated by convert_napn.js, so find a new csv for npa_report.csv or add world wide entries to e164-world.json
 var lookup, prefixes = {
 	"1201": ["US","United States"],
 	"1202": ["US","United States"],
