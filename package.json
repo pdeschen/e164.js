@@ -2,7 +2,7 @@
   "author": "Pascal Deschenes <pdeschen@rassemblr.com> (http://blog.rassemblr.com)",
   "name": "e164",
   "description": "lookup country name given international phone number e164 format.",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "keywords": [
     "phone",
     "country",

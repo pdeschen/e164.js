@@ -16,6 +16,8 @@ If you're into formating, parsing or validation of any sort, checkout [Google's 
 
 This module has been forked and modified by the addition of `convert_napm.js`. It works by using the npa_report.csv and generating a new set of data, then overriding the north american numbers already in the dataset. Along with additional rules for Remind (aka, seperating Peurto Rico from "US" country code and others that, unfortunately, involve extra fee's).
 
+We have since included these controlled territories as "US".
+
 You can download the latest CSV at the [North American Number Plan Adminstrator Site](https://nationalnanpa.com/reports/reports_npa.html) - Click on "NPA Database" for the current CSV. Replace `npa_report.csv` in the project directory and run
 `./convert_napn.js`
 

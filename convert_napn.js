@@ -26,16 +26,16 @@ const COUNTRY_TO_EXPECTED_FORMAT = {
   "TURKS & CAICOS ISLANDS": ["TC", "Turks and Caicos Islands"],
   BARBADOS: ["BB", "Barbados"],
   BERMUDA: ["BM", "Bermuda"],
-  "BRITISH VIRGIN ISLANDS": ["VG", "British Virgin Islands"]
+  "BRITISH VIRGIN ISLANDS": ["VG", "British Virgin Islands"],
 };
 
-// we have to do this to avoid getting over charged by accidentally delivering to these territories
+// Making sure that we report these as inside the US so we can use them as valid numbers.  Everything that isn't "US" or "CA" is excluded from being contactable.
 const LOCATION_OVERRIDE = {
-  "PUERTO RICO": ["PR", "Puerto Rico"],
-  USVI: ["VI", "Virgin Islands, US"],
-  GU: ["GU", "Guam"],
-  AS: ["AS", "American Samoa"],
-  CNMI: ["MP", "Northern Mariana Islands"]
+  "PUERTO RICO": ["US", "Puerto Rico"],
+  USVI: ["US", "Virgin Islands, US"],
+  GU: ["US", "Guam"],
+  AS: ["US", "American Samoa"],
+  CNMI: ["US", "Northern Mariana Islands"],
 };
 
 console.log("reading CSV file");
@@ -56,7 +56,7 @@ const correctedHeaders =
 
 console.log("attempting to parse CSV file");
 
-neatCsv(correctedHeaders + csvBody).then(npaData => {
+neatCsv(correctedHeaders + csvBody).then((npaData) => {
   const created_table = npaData.reduce((prev, row) => {
     if (!_.isEmpty(row.COUNTRY)) {
       // here we have to mark some places like Puerto Rico as not a part of the US, solely because of charges via our sms service.
@@ -88,7 +88,7 @@ neatCsv(correctedHeaders + csvBody).then(npaData => {
 
   const numbersInOrderStr = numberKeysArr
     .map(
-      numberKey => `"${numberKey}": ${JSON.stringify(allNumbers[numberKey])}`
+      (numberKey) => `"${numberKey}": ${JSON.stringify(allNumbers[numberKey])}`
     )
     .join();
   // inserting this directly into the e164.js file using regex, so not really json
@@ -97,7 +97,7 @@ neatCsv(correctedHeaders + csvBody).then(npaData => {
   // this finds(and inserts) all the places we should put endlines to have it formated like the js file
   const formatedJSON = npaJson.replace(
     /(?:{)|(?:\"\d*\")|(?:],)|(?:})/g,
-    substrmatch => {
+    (substrmatch) => {
       if (substrmatch[0] === '"') {
         return `\t${substrmatch}`;
       }
