@@ -240,6 +240,7 @@ var lookup, prefixes = {
   "1681": [ "US", "United States" ],
   "1682": [ "US", "United States" ],
   "1684": [ "AS", "American Samoa" ],
+  "1685": [ "JM", "Jamaica" ],
   "1700": [ "US", "United States" ],
   "1701": [ "US", "United States" ],
   "1702": [ "US", "United States" ],
